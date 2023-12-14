@@ -140,3 +140,24 @@ mysql> select * from addressbook where City="Nawada" order by FirstName;
 +----+-----------+----------+---------+--------+--------+----------------+---------------+
 2 rows in set (0.01 sec)
 
+<--UC9 add new columns name and contact_type in addressbook-->
+mysql> update addressbook
+    -> set name="VivekRanjan", contact_type="Family" where Id="1";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+mysql> update addressbook
+    -> set name="AmitKumar",contact_type="Friends" where Id="2";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+mysql> update addressbook
+    -> set name="NishantHarsh",contact_type="Profession" where Id="3";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+mysql> select *from addressbook;
++----+-----------+----------+---------+--------+--------+----------------+---------------+--------------+--------------+
+| Id | FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         | name         | contact_type |
++----+-----------+----------+---------+--------+--------+----------------+---------------+--------------+--------------+
+|  1 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com | VivekRanjan  | Family       |
+|  2 | Amit      | Kumar    | XXXX    | Nawada | 0000   | +91-XXXXXXXXXX | abc@gmail.com | AmitKumar    | Friends      |
+|  3 | Nishant   | Harsh    | XXXX    | Patna  | 0000   | +91-XXXXXXXXXX | xyz@gmail.com | NishantHarsh | Profession   |
++----+-----------+----------+---------+--------+--------+---------

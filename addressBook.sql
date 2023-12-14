@@ -105,3 +105,38 @@ mysql> select count(City),City from addressbook group by City;
 |           1 | Patna  |
 +-------------+--------+
 2 rows in set (0.01 sec)
+
+<--UC8 Ability to retrieve entries in sorting order-->
+<--increasing order>
+mysql> alter table addressbook
+    -> add column Id INT AUTO_INCREMENT PRIMARY KEY FIRST;
+Query OK, 0 rows affected (0.17 sec)
+mysql> select * from addressbook order by FirstName;
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+| Id | FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         |
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+|  2 | Amit      | Kumar    | XXXX    | Nawada | 0000   | +91-XXXXXXXXXX | abc@gmail.com |
+|  3 | Nishant   | Harsh    | XXXX    | Patna  | 0000   | +91-XXXXXXXXXX | xyz@gmail.com |
+|  1 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+3 rows in set (0.00 sec)
+<--Decreasing order>
+mysql> select * from addressbook order by FirstName Desc;
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+| Id | FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         |
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+|  1 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
+|  3 | Nishant   | Harsh    | XXXX    | Patna  | 0000   | +91-XXXXXXXXXX | xyz@gmail.com |
+|  2 | Amit      | Kumar    | XXXX    | Nawada | 0000   | +91-XXXXXXXXXX | abc@gmail.com |
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+3 rows in set (0.00 sec)
+<--sorting all the entries according to FirstName in City Nawada-->
+mysql> select * from addressbook where City="Nawada" order by FirstName;
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+| Id | FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         |
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+|  2 | Amit      | Kumar    | XXXX    | Nawada | 0000   | +91-XXXXXXXXXX | abc@gmail.com |
+|  1 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
++----+-----------+----------+---------+--------+--------+----------------+---------------+
+2 rows in set (0.01 sec)
+

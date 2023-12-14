@@ -172,3 +172,18 @@ mysql> select count(contact_type),contact_type from addressbook group by contact
 |                   1 | Profession   |
 +---------------------+--------------+
 3 rows in set (0.00 sec)
+
+<--UC11 add person to more than one contact_type-->
+mysql> insert into addressbook(FirstName,LastName,Address,City,Zip,PhoneNo,Email,name,contact_type)
+    -> values("Vivek","Ranjan","RjNwd","Nawada","805110","+91-XXXXXXXXXX","viv@gmail.com","VivekRanjan","Friends");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from addressbook;
++----+-----------+----------+---------+--------+--------+----------------+---------------+--------------+--------------+
+| Id | FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         | name         | contact_type |
++----+-----------+----------+---------+--------+--------+----------------+---------------+--------------+--------------+
+|  1 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com | VivekRanjan  | Family       |
+|  2 | Amit      | Kumar    | XXXX    | Nawada | 0000   | +91-XXXXXXXXXX | abc@gmail.com | AmitKumar    | Friends      |
+|  3 | Nishant   | Harsh    | XXXX    | Patna  | 0000   | +91-XXXXXXXXXX | xyz@gmail.com | NishantHarsh | Profession   |
+|  4 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com | VivekRanjan  | Friends      |
++----+-----------+----------+--------+--------+--------+----------------+---------------+--------------+--------------+

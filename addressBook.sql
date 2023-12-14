@@ -160,4 +160,15 @@ mysql> select *from addressbook;
 |  1 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com | VivekRanjan  | Family       |
 |  2 | Amit      | Kumar    | XXXX    | Nawada | 0000   | +91-XXXXXXXXXX | abc@gmail.com | AmitKumar    | Friends      |
 |  3 | Nishant   | Harsh    | XXXX    | Patna  | 0000   | +91-XXXXXXXXXX | xyz@gmail.com | NishantHarsh | Profession   |
-+----+-----------+----------+---------+--------+--------+---------
++----+-----------+----------+---------+--------+--------+----------------+---------------+--------------+--------------+
+
+<--UC10 Retrive count of Contacts on the basis of contact_type-->
+mysql> select count(contact_type),contact_type from addressbook group by contact_type;
++---------------------+--------------+
+| count(contact_type) | contact_type |
++---------------------+--------------+
+|                   1 | Family       |
+|                   1 | Friends      |
+|                   1 | Profession   |
++---------------------+--------------+
+3 rows in set (0.00 sec)

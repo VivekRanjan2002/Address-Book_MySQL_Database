@@ -87,3 +87,21 @@ mysql> select * from addressbook where City="Nawada";
 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
 +-----------+----------+---------+--------+--------+----------------+---------------+
 1 row in set (0.00 sec)
+
+<--UC7 Ability to retrieve count no. of entries in city named Nawada-->
+mysql> select count(City) from addressbook where City="Nawada";
++-------------+
+| count(City) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.01 sec)
+<--counting no. of entries of each city available-->
+mysql> select count(City),City from addressbook group by City;
++-------------+--------+
+| count(City) | City   |
++-------------+--------+
+|           2 | Nawada |
+|           1 | Patna  |
++-------------+--------+
+2 rows in set (0.01 sec)

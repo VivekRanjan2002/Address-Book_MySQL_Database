@@ -60,3 +60,21 @@ mysql> select * from addressbook;
 +-----------+----------+---------+--------+--------+----------------+---------------+
 1 row in set (0.00 sec)
 
+<--UC5 Ability to delete particular contact-->
+mysql> select * from addressbook;
++-----------+----------+---------+--------+--------+----------------+---------------+
+| FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         |
++-----------+----------+---------+--------+--------+----------------+---------------+
+| Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
+| Amit      | Kumar    | Area    | Patna  | 000000 | +91-XXXXXXXXXX | abc@gmail.com |
++-----------+----------+---------+--------+--------+----------------+---------------+
+2 rows in set (0.00 sec)
+mysql> delete from addressbook where FirstName="Amit";
+Query OK, 1 row affected (0.01 sec)
+mysql> select * from addressbook;
++-----------+----------+---------+--------+--------+----------------+---------------+
+| FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         |
++-----------+----------+---------+--------+--------+----------------+---------------+
+| Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
++-----------+----------+---------+--------+--------+----------------+---------------+
+1 row in set (0.00 sec)

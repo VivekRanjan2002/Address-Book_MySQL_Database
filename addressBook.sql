@@ -46,4 +46,17 @@ mysql> select * from addressbook;
 +-----------+----------+---------+--------+--------+----------------+---------------+
 1 row in set (0.00 sec)
 
+<--UC4-- Ability to edit contact details : updating email of Vivek>
+mysql> update addressbook
+    -> set Email="viv@gmail.com"
+    -> where FirstName="Vivek";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+mysql> select * from addressbook;
++-----------+----------+---------+--------+--------+----------------+---------------+
+| FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         |
++-----------+----------+---------+--------+--------+----------------+---------------+
+| Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
++-----------+----------+---------+--------+--------+----------------+---------------+
+1 row in set (0.00 sec)
 

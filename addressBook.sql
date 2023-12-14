@@ -78,3 +78,12 @@ mysql> select * from addressbook;
 | Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
 +-----------+----------+---------+--------+--------+----------------+---------------+
 1 row in set (0.00 sec)
+
+<--UC6 Ability to Retrieve Person belonging to a City named Nawada from the Address Book-->
+mysql> select * from addressbook where City="Nawada";
++-----------+----------+---------+--------+--------+----------------+---------------+
+| FirstName | LastName | Address | City   | Zip    | PhoneNo        | Email         |
++-----------+----------+---------+--------+--------+----------------+---------------+
+| Vivek     | Ranjan   | RjNwd   | Nawada | 805110 | +91-XXXXXXXXXX | viv@gmail.com |
++-----------+----------+---------+--------+--------+----------------+---------------+
+1 row in set (0.00 sec)
